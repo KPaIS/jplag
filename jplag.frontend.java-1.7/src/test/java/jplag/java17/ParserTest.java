@@ -4,15 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 
 import jplag.StrippedProgram;
-import jplag.java17.grammar.Java7Lexer;
-import jplag.java17.grammar.Java7Parser;
 
-import org.antlr.v4.runtime.ANTLRInputStream;
-import org.antlr.v4.runtime.CommonTokenStream;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -24,25 +19,6 @@ public class ParserTest {
 	@BeforeAll
 	public static void getPaths() {
 		srcTestResources = new File(System.getProperty("user.dir"), "src/test/resources");
-	}
-
-	/**
-	 * Parses a (useless) class that uses all the fancy Java 7 syntax features
-	 * that I was able to find so far. The output is not compared to anything.
-	 * This test should only assure that we have covered all new features with
-	 * the grammar.
-	 * 
-	 * @throws IOException
-	 */
-	@Test
-	public void testTheNewFancyJava7Features() throws IOException {
-		File file = new File(srcTestResources, "Java7FeatureTest.java");
-		FileInputStream fis = new FileInputStream(file);
-		ANTLRInputStream input = new ANTLRInputStream(fis);
-		Java7Lexer lexer = new Java7Lexer(input);
-		CommonTokenStream tokens = new CommonTokenStream(lexer);
-		Java7Parser parser = new Java7Parser(tokens);
-		parser.compilationUnit();
 	}
 
 	@Disabled

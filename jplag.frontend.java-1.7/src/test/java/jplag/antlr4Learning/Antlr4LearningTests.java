@@ -13,14 +13,14 @@ import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.ParseTree;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 public class Antlr4LearningTests {
 	private static File srcTestResources;
 
-	@BeforeClass
+	@BeforeAll
 	public static void getPaths() {
 		srcTestResources = new File(System.getProperty("user.dir"), "src/test/resources");
 	}
@@ -42,7 +42,7 @@ public class Antlr4LearningTests {
 		j7p.compilationUnit();
 	}
 
-	@Ignore
+	@Disabled
 	public void howToUseAntlr4() throws IOException {
 		FileInputStream fis = new FileInputStream(new File(srcTestResources, "Java7FeatureTest.java"));
 		// create a CharStream that reads from file input stream
@@ -62,7 +62,7 @@ public class Antlr4LearningTests {
 
 	}
 
-	@Ignore
+	@Disabled
 	public void howToUseAntlr4Tokens() throws IOException {
 		FileInputStream fis = new FileInputStream(new File(srcTestResources, "Java7FeatureTest.java"));
 		// create a CharStream that reads from file input stream

@@ -1,7 +1,7 @@
 package jplag.java17;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,16 +13,15 @@ import jplag.java17.grammar.Java7Parser;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 public class ParserTest {
 
 	private static File srcTestResources;
 
-	@BeforeClass
+	@BeforeAll
 	public static void getPaths() {
 		srcTestResources = new File(System.getProperty("user.dir"), "src/test/resources");
 	}
@@ -46,7 +45,7 @@ public class ParserTest {
 		parser.compilationUnit();
 	}
 
-	@Ignore
+	@Disabled
 	public void j7Template() throws IOException {
 		File file = new File(srcTestResources, "J7StringSwitch.java");
 		String expected = ""// @formatter:off
@@ -242,7 +241,7 @@ public class ParserTest {
 		String newTokens = parseWithJ7Parser(javaFile, true);
 		String oldTokens = parseWithJ5Parser(javaFile);
 		// compare token sequence?
-		Assert.assertEquals(oldTokens, newTokens);
+		assertEquals(oldTokens, newTokens);
 	}
 
 	private String parseWithJ5Parser(File javaFile) {

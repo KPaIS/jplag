@@ -3,14 +3,14 @@ package jplag.java17;
 import java.io.File;
 import java.io.IOException;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 /** See https://svn.ipd.kit.edu/trac/jplag/ticket/58 */
 public class Bug58 {
 	private static File srcTestResources;
 
-	@BeforeClass
+	@BeforeAll
 	public static void getPaths() {
 		srcTestResources = new File(System.getProperty("user.dir"), "src/test/resources");
 	}

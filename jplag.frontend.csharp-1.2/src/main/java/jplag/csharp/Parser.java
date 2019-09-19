@@ -23,9 +23,12 @@ public class Parser extends jplag.Parser implements CSharpTokenConstants {
 		}
 		Parser parser = new Parser();
 		parser.setProgram(new StrippedProgram());
-		jplag.Structure struct = parser.parse(new File(args[0]).getParentFile(), new String[] { new File(args[0]).getName() });
+
+		File inputFile = new File(args[0]);
+		jplag.Structure struct = parser.parse(inputFile.getParentFile(), new String[] { inputFile.getName() });
+
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(new File(args[0])));
+			BufferedReader reader = new BufferedReader(new FileReader(inputFile));
 			int lineNr = 1;
 			int token = 0;
 			String line;

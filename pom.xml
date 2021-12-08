@@ -24,6 +24,10 @@
 		<module>jplag.utils</module>
 		<module>jplag</module>
 	</modules>
+	<properties>
+  		<sonar.organization>kpais</sonar.organization>
+  		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	</properties>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
